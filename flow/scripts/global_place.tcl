@@ -3,6 +3,20 @@ source $::env(SCRIPTS_DIR)/load.tcl
 erase_non_stage_variables place
 load_design 3_2_place_iop.odb 2_floorplan.sdc
 
+# LEO: Skip global placement if it was done already
+# (taken from openlane hehe)
+
+set insts [[[[::ord::get_db] getChip] getBlock] getInsts]
+
+set placement_needed 0
+
+foreach inst $insts {
+	if { ![$inst isPlaced] } {
+		set placement_needed 1
+		break
+	}
+}
+
 set_dont_use $::env(DONT_USE_CELLS)
 
 fast_route
@@ -30,12 +44,13 @@ proc do_placement {global_placement_args} {
   log_cmd global_placement {*}$all_args
 }
 
-set result [catch {do_placement $global_placement_args} errMsg]
-if {$result != 0} {
-  write_db $::env(RESULTS_DIR)/3_3_place_gp-failed.odb
-  error $errMsg
+if {$placement_needed} {
+	set result [catch {do_placement $global_placement_args} errMsg]
+	if {$result != 0} {
+	  write_db $::env(RESULTS_DIR)/3_3_place_gp-failed.odb
+	  error $errMsg
+	}
 }
-
 estimate_parasitics -placement
 
 if {[env_var_equals CLUSTER_FLOPS 1]} {
