@@ -11,7 +11,7 @@ export SDC_FILE      = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.
 export DIE_AREA   = 0 0 2920 3520
 export CORE_AREA  = 10 10 2910 3510
 
-export PLACE_DENSITY ?= 0.23
+# export PLACE_DENSITY ?= 0.23
 
 export microwatt_DIR = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)
 
@@ -24,8 +24,12 @@ export ADDITIONAL_LIBS = $(wildcard $(microwatt_DIR)/lib/*.lib)
 export SYNTH_HIERARCHICAL = 1
 
 export RTLMP_BOUNDARY_WT = 0
-export MACRO_PLACE_HALO = 100 100
-export MACRO_PLACE_CHANNEL = 200 200
+# export MACRO_PLACE_HALO = 100 100
+# export MACRO_PLACE_CHANNEL = 200 200
+
+# LEO: Switch to legalize strategy
+export MACRO_STRATEGY = LEGALIZE
+export MACRO_PLACE_HALO = 100
 
 # CTS tuning
 export CTS_BUF_DISTANCE = 600

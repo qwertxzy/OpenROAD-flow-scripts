@@ -134,7 +134,7 @@ _installUbuntuPackages() {
         zlib1g-dev
 
     # install KLayout
-    if  [[ $1 == "rodete" ]]; then
+    if  [[ $1 == "12" ]]; then
         apt-get -y install --no-install-recommends klayout python3-pandas
     elif _versionCompare "$1" -ge 23.04; then
         apt-get -y install --no-install-recommends klayout python3-pandas
@@ -179,25 +179,25 @@ _installUbuntuPackages() {
     fi
 
     # Add Docker's official GPG key:
-    install -m 0755 -d /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
-        -o /etc/apt/keyrings/docker.asc
-    chmod a+r /etc/apt/keyrings/docker.asc
-
-    # Add the repository to Apt sources:
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-        tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-    apt-get -y update
-    if [[ $1 != "rodete" ]]; then
-        apt-get -y install --no-install-recommends \
-            docker-ce \
-            docker-ce-cli \
-            containerd.io \
-            docker-buildx-plugin \
-            docker-compose-plugin
-    fi
+    # install -m 0755 -d /etc/apt/keyrings
+    # curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+        # -o /etc/apt/keyrings/docker.asc
+    # chmod a+r /etc/apt/keyrings/docker.asc
+# 
+    # # Add the repository to Apt sources:
+    # echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        # $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        # tee /etc/apt/sources.list.d/docker.list > /dev/null
+# 
+    # apt-get -y update
+    # if [[ $1 != "rodete" ]]; then
+        # apt-get -y install --no-install-recommends \
+            # docker-ce \
+            # docker-ce-cli \
+            # containerd.io \
+            # docker-buildx-plugin \
+            # docker-compose-plugin
+    # fi
 }
 
 _installDarwinPackages() {
@@ -345,7 +345,7 @@ case "${os}" in
             _installCommon
         fi
         ;;
-    "Ubuntu" | "Debian GNU/Linux rodete" )
+    "Ubuntu" | "Debian GNU/Linux" )
         version=$(awk -F= '/^VERSION_ID/{print $2}' /etc/os-release | sed 's/"//g')
         if [[ -z ${version} ]]; then
             version=$(awk -F= '/^VERSION_CODENAME/{print $2}' /etc/os-release | sed 's/"//g')

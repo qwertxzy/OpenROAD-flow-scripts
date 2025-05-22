@@ -61,7 +61,7 @@
 # DESIGN_CONFIG=./designs/sky130hd/gcd/config.mk
 # DESIGN_CONFIG=./designs/sky130hd/ibex/config.mk
 # DESIGN_CONFIG=./designs/sky130hd/jpeg/config.mk
-# DESIGN_CONFIG=./designs/sky130hd/microwatt/config.mk
+DESIGN_CONFIG=./designs/sky130hd/microwatt/config.mk
 # DESIGN_CONFIG=./designs/sky130hd/riscv32i/config.mk
 
 # DESIGN_CONFIG=./designs/sky130hs/aes/config.mk
@@ -103,6 +103,10 @@
 
 # Default design
 DESIGN_CONFIG ?= ./designs/nangate45/gcd/config.mk
+
+# LEO: Set Macro Placement Strategy
+#		TRITON / HIER_RTLMP / LEGALIZE
+MACRO_STRATEGY ?= LEGALIZE
 
 # Include design and platform configuration before setting default options
 # in this file. This allows the DESIGN_CONFIG to set different defaults than

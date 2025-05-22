@@ -336,7 +336,8 @@ if [ ! -z "${CLEAN_BEFORE+x}" ]; then
         __cleanup
 fi
 __args_setup
-__common_setup
+# LEO: Don't update git repos
+# __common_setup
 
 # Choose install method
 if [ -z "${LOCAL_BUILD+x}" ] && command -v docker &> /dev/null; then
