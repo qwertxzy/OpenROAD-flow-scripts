@@ -4,7 +4,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     openroad = {
       type = "git";
-      url = "https://github.com/The-OpenROAD-Project/OpenROAD";
+      url = "https://github.com/qwertxzy/OpenROAD";
       submodules = true;
       rev = "b85bcc9f79b76ff8f24a283413b8023b16f44d1b";
     };
