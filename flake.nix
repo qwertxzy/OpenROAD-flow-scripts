@@ -6,7 +6,7 @@
       type = "git";
       url = "https://github.com/qwertxzy/OpenROAD";
       submodules = true;
-      rev = "1ef7128cd6d4446d7957b9ad342faf1af616059c";
+      rev = "23f3ed6757bd4ea7bff13c76efa1ccb776df9597";
     };
     yosys = {
       type = "git";
