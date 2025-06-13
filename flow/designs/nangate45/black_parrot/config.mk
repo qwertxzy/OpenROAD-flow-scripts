@@ -4,11 +4,6 @@ export PLATFORM    = nangate45
 
 export SYNTH_HIERARCHICAL = 1
 
-# RTL_MP Settings
-export RTLMP_MAX_INST = 30000
-export RTLMP_MIN_INST = 5000
-export RTLMP_MAX_MACRO = 12
-export RTLMP_MIN_MACRO = 4 
 
 export VERILOG_FILES = $(DESIGN_HOME)/src/$(DESIGN_NAME)/pickled.v \
                        $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NAME)/macros.v
@@ -35,11 +30,5 @@ export CORE_AREA   = 10.07 11.2 1340 1290
 export PLACE_PINS_ARGS = -exclude left:* -exclude right:* -exclude top:* -exclude bottom:0-100 -exclude bottom:1200-1350
 
 export PLACE_DENSITY_LB_ADDON = 0.05
-
-# export MACRO_PLACE_HALO    = 10 10
-# export MACRO_PLACE_CHANNEL = 20 20
-
-export MACRO_STRATEGY = LEGALIZE
-export MACRO_PLACE_HALO = 10
 
 export TNS_END_PERCENT     = 100
