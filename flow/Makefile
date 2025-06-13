@@ -104,10 +104,6 @@ DESIGN_CONFIG=./designs/sky130hd/microwatt/config.mk
 # Default design
 DESIGN_CONFIG ?= ./designs/nangate45/gcd/config.mk
 
-# LEO: Set Macro Placement Strategy
-#		TRITON / HIER_RTLMP / LEGALIZE
-MACRO_STRATEGY ?= LEGALIZE
-
 # Include design and platform configuration before setting default options
 # in this file. This allows the DESIGN_CONFIG to set different defaults than
 # this file.
