@@ -2,7 +2,7 @@
 include $(dir $(lastword $(MAKEFILE_LIST)))config.mk
 
 # Set macro strategy
-MACRO_STRATEGY = TRITON
+export MACRO_STRATEGY = TRITON
 
 # Set halo sizes
 export MACRO_PLACE_HALO    = 10 10
