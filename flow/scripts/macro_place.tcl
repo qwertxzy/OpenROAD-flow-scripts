@@ -32,6 +32,9 @@ proc do_placement {} {
 # Hierarchical MP
 if {$::env(MACRO_STRATEGY) == "HIER_RTLMP"} {
 	source $::env(SCRIPTS_DIR)/macro_place_util.tcl
+
+	# Remove the stdcells again?!?!
+	mpl2::unplace_std_cells
 }
 
 # Legacy (Triton) Placer
