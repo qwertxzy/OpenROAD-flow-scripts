@@ -89,17 +89,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1749670314,
-        "narHash": "sha256-CgabkZDvh4tB1T+LPSPPgwMQM982Db9O57O1RHpF/go=",
+        "lastModified": 1749723229,
+        "narHash": "sha256-MSg9TxycA6+vB54UqGYu5jHSPlZIGRkFEn9Go3zMcDE=",
         "ref": "refs/heads/master",
-        "rev": "1ef7128cd6d4446d7957b9ad342faf1af616059c",
-        "revCount": 26803,
+        "rev": "23f3ed6757bd4ea7bff13c76efa1ccb776df9597",
+        "revCount": 26804,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/qwertxzy/OpenROAD"
       },
       "original": {
-        "rev": "1ef7128cd6d4446d7957b9ad342faf1af616059c",
+        "rev": "23f3ed6757bd4ea7bff13c76efa1ccb776df9597",
         "submodules": true,
         "type": "git",
         "url": "https://github.com/qwertxzy/OpenROAD"

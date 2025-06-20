@@ -3,6 +3,8 @@ source $::env(SCRIPTS_DIR)/load.tcl
 # erase_non_stage_variables floorplan
 load_design 2_2_floorplan_io.odb 2_1_floorplan.sdc
 
+puts "Using Strategy $::env(MACRO_STRATEGY)"
+
 # LEO: Global Place helper proc
 # should do just as well as the GPL step, which can then just skip ahead
 proc do_placement {} {
@@ -28,6 +30,19 @@ proc do_placement {} {
 	log_cmd global_placement {*}$all_args
 }
 
+# Determine whether standard cells should be unplaced again or not
+# Criteria are either: TritonMP flow is used
+# Or: env(MACRO_UNPLACE_STD) exists and is true-ish
+if {$::env(MACRO_STRATEGY) == "TRITON"} {
+	set unplace_std 1
+} elseif {[info exists ::env(MACRO_UNPLACE_STD)]} {
+	set unplace_std $::env(MACRO_UNPLACE_STD)
+}
+
+if { $unplace_std } {
+	puts "Also unplacing stdcells after this step again"
+}
+
 # LEO: Switch between macro placers
 # Hierarchical MP
 if {$::env(MACRO_STRATEGY) == "HIER_RTLMP"} {
@@ -39,9 +54,6 @@ if {$::env(MACRO_STRATEGY) == "TRITON"} {
 	remove_buffers
 	do_placement
 	macro_placement -halo $::env(MACRO_PLACE_HALO) -channel $::env(MACRO_PLACE_CHANNEL)
-	
-	# Unplace standard cells from global placement
-	mpl2::unplace_std_cells
 }
 
 # My legalize strat after placement
@@ -52,6 +64,10 @@ if {$::env(MACRO_STRATEGY) == "LEGALIZE"} {
 	
 	# Legalize macros
 	fix_macros -halo_width $::env(MACRO_PLACE_HALO)
+}
+
+if { $unplace_std } {
+	mpl2::unplace_std_cells
 }
 
 write_db $::env(RESULTS_DIR)/2_3_floorplan_macro.odb
