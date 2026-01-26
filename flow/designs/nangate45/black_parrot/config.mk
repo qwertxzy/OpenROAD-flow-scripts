@@ -3,7 +3,6 @@ export DESIGN_NAME = black_parrot
 export PLATFORM    = nangate45
 
 export SYNTH_HIERARCHICAL = 1
-#
 
 export VERILOG_FILES = $(DESIGN_HOME)/src/$(DESIGN_NAME)/pickled.v \
                        $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NAME)/macros.v
@@ -31,9 +30,12 @@ export IO_CONSTRAINTS = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NAME)/io.tcl
 
 export PLACE_DENSITY_LB_ADDON = 0.05
 
-export MACRO_PLACEMENT_TCL = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NAME)/macro_placement.tcl
+# export MACRO_PLACEMENT_TCL = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NAME)/macro_placement.tcl
 
-export MACRO_PLACE_HALO    = 10 10
+# Split these into sub-files like in the branch again
+# export MACRO_PLACE_HALO    = 10 10
+export MACRO_PLACE_HALO      = 10
+export MACRO_STRATEGY = LEGALIZE
 
 export TNS_END_PERCENT     = 100
 
