@@ -34,9 +34,10 @@ if { [find_macros] != "" } {
     set blockage_width $::env(MACRO_BLOCKAGE_HALO)
   }
 
-  if { [env_var_exists_and_non_empty MACRO_PLACEMENT_TCL] } {
-    log_cmd source $::env(MACRO_PLACEMENT_TCL)
-  }
+  # Now done in macro_place.tcl
+  # if { [env_var_exists_and_non_empty MACRO_PLACEMENT_TCL] } {
+  #   log_cmd source $::env(MACRO_PLACEMENT_TCL)
+  # }
 
   set additional_rtlmp_args ""
   append_env_var additional_rtlmp_args RTLMP_MAX_LEVEL -max_num_level 1
