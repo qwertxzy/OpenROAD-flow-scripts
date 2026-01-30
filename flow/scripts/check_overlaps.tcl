@@ -1,5 +1,5 @@
 # TODO: where to put this
-set unplace_threshold 1000
+set unplace_threshold 750
 
 # Helper function to check if an instance is a standard cell
 proc is_std_cell {inst} {

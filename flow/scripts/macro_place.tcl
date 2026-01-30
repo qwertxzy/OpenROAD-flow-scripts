@@ -46,8 +46,8 @@ if {$::env(MACRO_STRATEGY) == "LEGALIZE"} {
 	
 	# Legalize macros
 	set leg_args {}
-	lappend leg_args {-halo_width $::env(MACRO_PLACE_HALO)}
-	lappend leg_args {*}[env_ar_or_empty LEGALIZATION_ARGS]
+	lappend leg_args -halo_width $::env(MACRO_PLACE_HALO)
+	lappend leg_args {*}[env_var_or_empty LEGALIZATION_ARGS]
 
 	log_cmd legalize_macros {*}$leg_args
 }
