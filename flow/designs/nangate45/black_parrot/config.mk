@@ -36,6 +36,7 @@ export PLACE_DENSITY_LB_ADDON = 0.05
 # export MACRO_PLACE_HALO    = 10 10
 export MACRO_PLACE_HALO      = 10
 export MACRO_STRATEGY = LEGALIZE
+# export LEGALIZATION_ARGS = -origin_multiplier 0
 
 export TNS_END_PERCENT     = 100
 

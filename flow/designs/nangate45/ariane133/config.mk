@@ -18,7 +18,10 @@ export CORE_MARGIN = 5
 
 export IO_CONSTRAINTS = $(DESIGN_HOME)/$(PLATFORM)/$(DESIGN_NICKNAME)/io.tcl
 
-export MACRO_PLACE_HALO    = 10 10
+# export MACRO_PLACE_HALO    = 10 10
+export MACRO_PLACE_HALO      = 10
+export MACRO_STRATEGY = LEGALIZE
+export LEGALIZATION_ARGS = -origin_multiplier 0.0001
 
 export SKIP_GATE_CLONING   = 1
 

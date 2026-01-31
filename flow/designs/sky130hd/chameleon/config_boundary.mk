@@ -47,6 +47,7 @@ export ADDITIONAL_LEFS  = $(chameleon_DIR)/lef/apb_sys_0.lef \
 # export MACRO_PLACEMENT_TCL = $(chameleon_DIR)/macro_placement.tcl
 export MACRO_STRATEGY = LEGALIZE
 export MACRO_PLACE_HALO      = 20
+export LEGALIZATION_ARGS = -origin_multiplier 0.0 -boundary_multiplier 0.05 -consecutive_zero_iters 20
 
 export FP_PDN_RAIL_WIDTH  = 0.48
 export FP_PDN_RAIL_OFFSET = 0
