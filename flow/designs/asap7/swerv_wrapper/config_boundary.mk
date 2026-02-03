@@ -59,7 +59,7 @@ export PLACE_DENSITY_LB_ADDON = 0.20
 
 export ROUTING_LAYER_ADJUSTMENT = 0.2
 
-export MACRO_PLACE_HALO      = 15
+export MACRO_PLACE_HALO      = 10
 export MACRO_STRATEGY = LEGALIZE
 export LEGALIZATION_ARGS = -origin_multiplier 0.0 -boundary_multiplier 0.002 -max_iterations 400
 # -damping_factor 0.8
